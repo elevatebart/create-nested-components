@@ -9,5 +9,13 @@
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@cypress/react": "^5.0.0",
+    "@cypress/webpack-dev-server": "^1.8.1",
+    "cypress": "https://cdn.cypress.io/beta/npm/10.0.0/darwin-x64/circle-10.0-release-cf7eb98f85039406557f28fd980fc82e36a98f87/cypress.tgz",
+    "html-webpack-plugin": "^4.0.0",
+    "webpack": "^4.0.0",
+    "webpack-dev-server": "^4.0.0"
   }
 }
