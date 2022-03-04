@@ -1,27 +1,34 @@
 # Example app using nested components
 
-Taking advantage of the composable nature of React components we can modularize our apps in self-contained, meaningful components. This example has a page under `pages/index.js` that uses `components/paragraph.js` and `components/post.js` that can be styled and managed separately.
+This example is used to reproduce a bug in the dev process of cypress.
 
-## Preview
+## March 3rd, 2020
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+steps to reproduce the bug
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/nested-components)
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/nested-components&project-name=nested-components&repository-name=nested-components)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example nested-components nested-components-app
-# or
-yarn create next-app --example nested-components nested-components-app
+```sh
+git clone https://github.com/elevatebart/create-nested-components.git
+cd create-nested-components
+yarn install
+cd ..
+git clone https://github.com/cypress-io/cypress.git
+cd cypress
+git checkout 10.0-release
+yarn install
+yarn cypress:open --project ../create-nested-components --component
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Finally:
+
+- start component testing with chrome
+- create the first spec file from post.js
+
+`Error [ERR_IPC_CHANNEL_CLOSED]: Channel closed`
+
+## How was this repo created?
+
+```sh
+yarn create next-app --example --example nested-components create-nested-components
+cd create-nested-components
+yarn add -D @cypress/react @cypress/webpack-dev-server
+```
